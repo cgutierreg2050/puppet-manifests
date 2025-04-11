@@ -18,10 +18,11 @@ jobs:
         run: |
           sudo apt update
           sudo apt install ruby -y
-          gem install puppet-lint --user-install
-          echo "$HOME/.gem/ruby/3.0.0/bin" >> $GITHUB_PATH
+          gem install --user-install puppet-lint
+          echo "$(ruby -e 'puts Gem.user_dir')/bin" >> $GITHUB_PATH
 
       - name: Run puppet-lint
         run: |
           puppet-lint manifests/
+
 
