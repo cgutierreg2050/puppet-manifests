@@ -14,12 +14,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install Ruby and Puppet Lint (sin sudo para gem)
+      - name: Install Ruby and Puppet Lint
         run: |
           sudo apt update
           sudo apt install ruby -y
-          gem install --user-install puppet-lint
-          echo "$HOME/.gem/ruby/3.0.0/bin" >> $GITHUB_PATH
+          sudo gem install puppet-lint
 
       - name: Run puppet-lint
         run: |
