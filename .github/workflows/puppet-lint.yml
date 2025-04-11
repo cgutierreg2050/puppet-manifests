@@ -1,0 +1,25 @@
+name: Puppet Lint
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Ruby and Puppet Lint
+        run: |
+          sudo apt update
+          sudo apt install ruby -y
+          gem install puppet-lint
+
+      - name: Run puppet-lint
+        run: |
+          puppet-lint manifests/
