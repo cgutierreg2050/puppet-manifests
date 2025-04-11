@@ -23,6 +23,6 @@ jobs:
 
       - name: Run puppet-lint
         run: |
-          puppet-lint manifests/
+         puppet-lint production/manifests/
 
 
