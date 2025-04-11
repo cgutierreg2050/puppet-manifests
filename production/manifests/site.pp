@@ -18,5 +18,6 @@ node default {
         install_options => ['--ignore-checksums'],
  }
 }  # ← Agrega esta llave para cerrar el nodo
+# Esto es una prueba para activar el workflow
     
    
